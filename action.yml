@@ -17,6 +17,9 @@ inputs:
   port:
     description: "SSH port"
     default: 22
+outputs:
+  ssh-output:
+    description: "Output of ssh commands."
 runs:
   using: "docker"
   image: "Dockerfile"
