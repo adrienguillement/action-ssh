@@ -22,6 +22,7 @@ For exemple :
   with:
     hosts: ${{ secrets.USER_HOST }}
     privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+    port: 5871
     command: <This is my awesome command>
 
 - uses: marocchino/sticky-pull-request-comment@v2
