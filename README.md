@@ -10,6 +10,30 @@ GitHub Action (yml) to execute SSH commands on remote server(s).
 
 *Password authentication is generally seen as unsafe and is therefore not supported.*
 
+## Forked from JimCronqvist/action-ssh
+This fork add port in input parameters and allow you to output the result of command to use in other steps.
+
+For exemple : 
+
+```yml
+- name: Run ssh command
+  id: ssh-step
+  uses: adrienguillement/action-ssh@master
+  with:
+    hosts: ${{ secrets.USER_HOST }}
+    privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+    command: <This is my awesome command>
+
+- uses: marocchino/sticky-pull-request-comment@v2
+  with:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    header: back-deploy
+    message: |
+      ```
+      ${{ steps.ssh-step.outputs.ssh-output }}
+      ```
+```
+
 ## Example usage
 
 **Basic Example** 
