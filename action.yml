@@ -20,6 +20,7 @@ inputs:
 outputs:
   ssh-output:
     description: "Output of ssh commands."
+
 runs:
   using: "docker"
   image: "Dockerfile"
