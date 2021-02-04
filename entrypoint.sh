@@ -32,7 +32,7 @@ echo ""
 
 for host in ${INPUT_HOSTS}; do
   echo -e "${BLUE}Connecting to ${host}...${NORMAL}"
-  sh -c "ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' -p ${INPUT_PORT} < ~/script.sh"
+  echo "::set-output name=ssh-output::$(sh -c "ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' -p ${INPUT_PORT} < ~/script.sh")\n"
   echo ""
 done
 
